@@ -8,10 +8,10 @@ class TestDagIntegrity(unittest.TestCase):
 
     def setUp(self):
         self.dagbag = DagBag(dag_folder=os.environ.get("AIRFLOW__CORE__DAGS_FOLDER"))
-        print(f"Validating the following DAGs:")
-        print(*self.dagbag.dags)
 
     def test_import_dags(self):
+        print(f"Validating the following DAGs:")
+        print(*self.dagbag.dags)
         self.assertFalse(
             len(self.dagbag.import_errors),
             "DAG import failures. Errors: {}".format(self.dagbag.import_errors),
