@@ -6,7 +6,7 @@ inputs:
   command:
     description: "command"
     default: "dbt run"
-    required: false
+    required: true
   dbt_project_folder:
     description: "dbt project folder. Defaults to ."
     default: "."
