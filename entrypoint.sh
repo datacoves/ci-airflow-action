@@ -48,3 +48,5 @@ if [ $? -eq 0 ]
     echo "DBT run failed" >> "${DBT_LOG_FILE}"
     exit 1
 fi
+
+python /usr/app/dagbag_validator.py
