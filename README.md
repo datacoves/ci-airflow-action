@@ -52,13 +52,26 @@ This action assumes that your dbt project is in the top-level directory of your 
 ## Airflow validation usage
 
 ```yml
-    - name: Test Airflow DAGs validity
-      uses: datacoves/ci-airflow-action@v0.4.0
-      with:
-        command: "python /dagbag_validator.py"
-      env:
-        DATACOVES__YAML_DAGS_FOLDER: /path/to/yaml/dag/folder
-        AIRFLOW__CORE__DAGS_FOLDER: /path/to/apache/dag/folder
+    env:
+      DATACOVES__REPO_PATH: /path/to/repo
+      DATACOVES__YAML_DAGS_FOLDER: /path/to/airflow/yaml/files
+      AIRBYTE__EXTRACT_LOCATION: /path/to/airbyte/extracted/files
+      AIRFLOW__CORE__DAGS_FOLDER: /path/to/airflow/dags/location
+      AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: 300
+      TEST_MODE: "True" # Necessary to avoid connection issues between Airflow and Airbyte
+
+    steps:
+      - name: Test DAG structure integrity (DagBag Loading)
+        uses: datacoves/ci-airflow-action@v0.4.0
+        with:
+            command: "python /usr/app/load_dagbag.py"
+      
+      - name: Test DBT Sources against DAGs' YAML files
+        uses: datacoves/ci-airflow-action@v0.4.0
+        with:
+          dbt_project_folder: "transform"
+          command: "python /usr/app/test_dags.py"
+        
 ```
 
 ## Thanks
