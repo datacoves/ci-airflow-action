@@ -1,12 +1,21 @@
 # ci-airflow-action
 
 A GitHub Action to @run [dbt](https://www.getdbt.com) and [dbt-coves](https://www.datacoves.com) commands, as well as test [Apache Airflow](https://airflow.apache.org/) DAGs integrity in a Docker container. You can use [dbt commands](https://docs.getdbt.com/reference/dbt-commands) such as `run`, `test` and `debug`. This action captures the dbt console output for use in subsequent steps. 
+## Supported versions
+
+| Library  | Version  |
+|---|---|
+| dbt  | 0.21.1  |
+| dbt-coves  | 0.21.1a20  |
+| apache-airflow  | 2.2.1  |
+| dag-factory  | 0.8.0-26  |
+| airflow-dbt  | 0.4.0-2  |
 
 ## Usage
 
 ```yml
     - name: DBT Run
-      uses: datacoves/ci-airflow-action@v0.4.0
+      uses: datacoves/ci-airflow-action@v1.1
       with:
         command: "dbt run --profiles-dir ."
       env:
@@ -20,7 +29,7 @@ The result of the dbt command is either `failed` or `passed` and is saved into t
 ```yml
     - name: DBT Run
       id: dbt-run
-      uses: datacoves/ci-airflow-action@v0.4.0
+      uses: datacoves/ci-airflow-action@v1.1
       with:
         command: "dbt run --profiles-dir ."
       env:
@@ -39,7 +48,7 @@ This action assumes that your dbt project is in the top-level directory of your 
 
 ```yml
     - name: DBT Run
-      uses: datacoves/ci-airflow-action@v0.4.0
+      uses: datacoves/ci-airflow-action@v1.1
       with:
         command: "dbt run --profiles-dir ."
         project_folder: "dbt_project"
@@ -62,12 +71,12 @@ This action assumes that your dbt project is in the top-level directory of your 
 
     steps:
       - name: Test DAG structure integrity (DagBag Loading)
-        uses: datacoves/ci-airflow-action@v0.4.0
+        uses: datacoves/ci-airflow-action@v1.1
         with:
             command: "python /usr/app/load_dagbag.py"
       
       - name: Test DBT Sources against DAGs' YAML files
-        uses: datacoves/ci-airflow-action@v0.4.0
+        uses: datacoves/ci-airflow-action@v1.1
         with:
           dbt_project_folder: "transform"
           command: "python /usr/app/test_dags.py"
