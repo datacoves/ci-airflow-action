@@ -5,9 +5,9 @@ A GitHub Action to @run [dbt](https://www.getdbt.com) and [dbt-coves](https://ww
 
 | Library  | Version  |
 |---|---|
-| dbt  | 1.0.1  |
-| dbt-coves  | 1.0.4a3  |
-| apache-airflow  | 2.2.2  |
+| dbt  | 0.21.1  |
+| dbt-coves  | 0.21.1a20  |
+| apache-airflow  | 2.2.1  |
 | dag-factory  | 0.8.0-26  |
 | airflow-dbt  | 0.4.0-2  |
 
