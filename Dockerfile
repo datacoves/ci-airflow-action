@@ -1,4 +1,4 @@
-FROM datacoves/ci-airflow:0.4.0.202203281352-1d5924c7
+FROM datacoves/ci-airflow:0.4.0.202203011216-6ac05865
 # The source code for this image is in https://gitlab.com/datacoves/datacoves/-/tree/main/src/ci
 
 LABEL com.datacoves.ci.library.version.dbt="0.21.1"
