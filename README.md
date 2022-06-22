@@ -5,10 +5,10 @@ A GitHub Action to @run [dbt](https://www.getdbt.com) and [dbt-coves](https://ww
 
 | Library  | Version  |
 |---|---|
-| dbt  | 1.0.1  |
-| dbt-coves  | 1.0.4a3  |
-| apache-airflow  | 2.2.2  |
-| dag-factory  | 0.8.0-26  |
+| dbt  | 1.1.1 |
+| dbt-coves  | 1.1.1a1  |
+| apache-airflow  | 2.3.1  |
+| dag-factory  | 0.8.0-32  |
 | airflow-dbt  | 0.4.0-2  |
 
 ## Usage
