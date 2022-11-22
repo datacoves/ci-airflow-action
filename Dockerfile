@@ -1,4 +1,4 @@
-FROM datacoves/ci-airflow:0.5.202211152138-8d537c7d
+FROM datacoves/ci-airflow:1.0.202211221321-9f49aafe
 # The source code for this image is in https://gitlab.com/datacoves/datacoves/-/tree/main/src/ci
 
 COPY entrypoint.sh /entrypoint.sh
